@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.anketdemos.R
 import com.example.anketdemos.ui.login.interactor.LoginInteractor
+import com.example.anketdemos.ui.login.interactor.LoginInteractorImpl
 import com.example.anketdemos.ui.login.presenter.LoginPresenter
 import com.example.anketdemos.ui.main.view.MainActivity
 import com.example.anketdemos.util.AppConstants
@@ -17,7 +18,7 @@ import javax.inject.Inject
 class LoginActivity : BaseActivity(),LoginView{
 
     @Inject
-    internal lateinit var presenter: LoginPresenter<LoginView, LoginInteractor>
+    internal lateinit var presenter: LoginPresenter<LoginView, LoginInteractorImpl>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

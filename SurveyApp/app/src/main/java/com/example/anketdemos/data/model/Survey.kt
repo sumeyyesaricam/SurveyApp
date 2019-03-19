@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import java.util.*
 
 
-data class Question(
+data class Survey(
     @Expose
     @SerializedName("questionId")
     var questionId: String? = null,
