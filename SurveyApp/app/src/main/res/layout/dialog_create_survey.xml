@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <EditText
+            android:id="@+id/et_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Soru"
+            android:inputType="textCapSentences">
+
+        <requestFocus/>
+    </EditText>
+    <EditText
+            android:id="@+id/et_response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Cevap"
+            android:inputType="textCapSentences">
+
+        <requestFocus/>
+    </EditText>
+    <EditText
+            android:id="@+id/et_other_response"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cevap"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textCapSentences">
+
+        <requestFocus/>
+    </EditText>
+</LinearLayout>

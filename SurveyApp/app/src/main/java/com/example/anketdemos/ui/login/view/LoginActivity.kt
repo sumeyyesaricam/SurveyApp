@@ -23,8 +23,8 @@ class LoginActivity : BaseActivity(),LoginView{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        AndroidInjection.inject(this)
         setOnClickListeners()
+        presenter.onAttach(this)
     }
 
     override fun showValidationMessage(errorCode: Int) {

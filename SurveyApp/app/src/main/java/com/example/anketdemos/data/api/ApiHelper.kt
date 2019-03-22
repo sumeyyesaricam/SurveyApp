@@ -9,6 +9,6 @@ interface ApiHelper {
 
     fun signup(username: String, password: String,onComplete: (String) -> Unit)
 
-    fun addSurvey(content: String, response: String, otherResponse: String,onComplete: (String) -> Unit)
+    fun addSurvey(survey: Survey,onComplete: (String) -> Unit)
 
 }

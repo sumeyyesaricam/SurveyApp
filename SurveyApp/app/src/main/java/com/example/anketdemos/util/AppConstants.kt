@@ -6,4 +6,6 @@ object AppConstants{
     internal val INVALID_EMAIL_ERROR = 1002
     internal val EMPTY_PASSWORD_ERROR = 1003
     internal val LOGIN_FAILURE = 1004
+    internal val LOAD_SURVEY_LIST_ERROR = 1003
+    internal val ADD_SURVEY_ERROR = 1004
 }

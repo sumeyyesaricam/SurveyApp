@@ -13,8 +13,7 @@ class AppApiHelper @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
     private var firestore: FirebaseFirestore
 ) : ApiHelper {
-    override fun addSurvey(content: String, response: String, otherResponse: String, onComplete: (String) -> Unit) {
-        val survey= Survey()
+    override fun addSurvey(survey: Survey, onComplete: (String) -> Unit) {
         val surveys = firestore.collection("survey").document()
         survey.questionId = surveys.id
         surveys.set(survey)
@@ -23,7 +22,7 @@ class AppApiHelper @Inject constructor(
     override fun signup(username: String, password: String, onComplete: (String) -> Unit) {
         firebaseAuth.createUserWithEmailAndPassword(username, password)
             .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
+                if (task.isComplete) {
                     val userId = firebaseAuth.currentUser!!.uid
                     val token = FirebaseInstanceId.getInstance().token
                     val user = User(userId, username, token)
@@ -35,6 +34,8 @@ class AppApiHelper @Inject constructor(
                         } else
                             onComplete("")
                     }
+                }else{
+                    onComplete("")
                 }
             }
     }

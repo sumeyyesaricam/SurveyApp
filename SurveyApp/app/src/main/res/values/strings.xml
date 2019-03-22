@@ -7,4 +7,6 @@
     <string name="invalid_email_error_message">Geçersiz kullanıcı adı</string>
     <string name="empty_password_error_message">Şifreyi boş bırakmayın.</string>
     <string name="login_failure">Kullanıcı adı yada şifre hatalı.</string>
+    <string name="load_survey_list_error">Anket listesi yüklenemedi.</string>
+    <string name="add_survey_error">Anket oluşturulamadı.</string>
 </resources>

@@ -1,7 +1,8 @@
 package com.example.anketdemos.ui.main.interactor
 
-import com.example.anketdemos.data.model.Question
+import com.example.anketdemos.data.model.Survey
 
 interface MainInteractor {
-   fun getQuestions(onListen: (List<Question>) -> Unit)
+   fun getQuestions(onListen: (List<Survey>) -> Unit)
+   fun createSurvey(survey: Survey, onComplete: (String) -> Unit)
 }

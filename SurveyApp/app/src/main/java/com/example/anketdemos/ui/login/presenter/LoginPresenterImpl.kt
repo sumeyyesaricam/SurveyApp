@@ -7,8 +7,7 @@ import com.mindorks.framework.mvp.ui.base.presenter.BasePresenter
 import javax.inject.Inject
 
 class LoginPresenterImpl<V : LoginView, I : LoginInteractorImpl> @Inject internal constructor(interactor: I) :
-    BasePresenter<V, I>(interactor = interactor),
-    LoginPresenter<V, I> {
+    BasePresenter<V, I>(interactor = interactor), LoginPresenter<V, I> {
 
     override fun onClickedLogin(username: String, password: String) {
         when {
@@ -18,7 +17,10 @@ class LoginPresenterImpl<V : LoginView, I : LoginInteractorImpl> @Inject interna
                 getView()?.showProgress()
                 interactor?.doServerLoginApiCall(username = username, password = password) { userId ->
                     getView()?.hideProgress()
-                    getView()?.showValidationMessage(AppConstants.LOGIN_FAILURE)
+                    if (userId != "")
+                        getView()?.openMainActivity()
+                    else
+                        getView()?.showValidationMessage(AppConstants.LOGIN_FAILURE)
 
                 }
             }
