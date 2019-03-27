@@ -5,7 +5,7 @@ import com.google.firebase.firestore.ListenerRegistration
 
 interface ApiHelper {
 
-    fun getQuestions(onListen: (List<Survey>) -> Unit): ListenerRegistration
+    fun getSurveys(onComplete: (List<Survey>) -> Unit): ListenerRegistration
 
     fun signup(username: String, password: String,onComplete: (String) -> Unit)
 

@@ -7,6 +7,14 @@ import javax.inject.Inject
 
 class LoginInteractorImpl @Inject internal constructor(preferenceHelper: PreferenceHelper, apiHelper: ApiHelper) :
     BaseInteractor(preferenceHelper, apiHelper), LoginInteractor {
+    override fun setLogin() {
+        preferenceHelper.setCurrentUserLoggedInMode(true)
+    }
+
+    override fun isLogin(onComplete: (Boolean) -> Unit) {
+        onComplete(preferenceHelper.getCurrentUserLoggedInMode())
+    }
+
     override fun doServerLoginApiCall(username: String, password: String, onComplete: (String) -> Unit) {
         apiHelper.signup(username, password) { userId ->
             onComplete(userId)

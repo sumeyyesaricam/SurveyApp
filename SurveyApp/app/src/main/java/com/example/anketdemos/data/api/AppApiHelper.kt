@@ -40,18 +40,19 @@ class AppApiHelper @Inject constructor(
             }
     }
 
-    override fun getQuestions(onListen: (List<Survey>) -> Unit): ListenerRegistration {
+    override fun getSurveys(onComplete: (List<Survey>) -> Unit): ListenerRegistration {
         val questionList = mutableListOf<Survey>()
-        return firestore.collection("question")
+        return firestore.collection("survey")
             .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                 if (firebaseFirestoreException != null) {
-                    Log.e("FIRESTORE", "ChatMessagesListener error.", firebaseFirestoreException)
+                    Log.e("FIRESTORE", "SurveyListener error.", firebaseFirestoreException)
                 } else {
+                    questionList.clear()
                     querySnapshot?.documents?.forEach {
                         questionList.add(it.toObject(Survey::class.java)!!)
                     }
                 }
-                onListen(questionList)
+                onComplete(questionList)
             }
     }
 

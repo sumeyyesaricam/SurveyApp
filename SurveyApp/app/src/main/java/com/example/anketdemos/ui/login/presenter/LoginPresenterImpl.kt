@@ -8,6 +8,12 @@ import javax.inject.Inject
 
 class LoginPresenterImpl<V : LoginView, I : LoginInteractorImpl> @Inject internal constructor(interactor: I) :
     BasePresenter<V, I>(interactor = interactor), LoginPresenter<V, I> {
+    override fun isLogin() {
+        interactor?.isLogin { isLogin ->
+            if (isLogin)
+                getView()?.openMainActivity()
+        }
+    }
 
     override fun onClickedLogin(username: String, password: String) {
         when {
@@ -17,9 +23,10 @@ class LoginPresenterImpl<V : LoginView, I : LoginInteractorImpl> @Inject interna
                 getView()?.showProgress()
                 interactor?.doServerLoginApiCall(username = username, password = password) { userId ->
                     getView()?.hideProgress()
-                    if (userId != "")
+                    if (userId != "") {
+                        interactor?.setLogin()
                         getView()?.openMainActivity()
-                    else
+                    } else
                         getView()?.showValidationMessage(AppConstants.LOGIN_FAILURE)
 
                 }

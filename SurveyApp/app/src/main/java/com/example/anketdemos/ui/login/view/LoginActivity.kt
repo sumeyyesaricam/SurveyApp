@@ -25,6 +25,8 @@ class LoginActivity : BaseActivity(),LoginView{
         setContentView(R.layout.activity_login)
         setOnClickListeners()
         presenter.onAttach(this)
+        presenter.isLogin()
+
     }
 
     override fun showValidationMessage(errorCode: Int) {

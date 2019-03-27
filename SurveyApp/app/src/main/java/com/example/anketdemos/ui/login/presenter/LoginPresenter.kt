@@ -7,4 +7,5 @@ import com.mindorks.framework.mvp.ui.base.presenter.IBasePresenter
 
 interface LoginPresenter<V : LoginView, I : LoginInteractorImpl> :  IBasePresenter<V, I> {
     fun onClickedLogin(username: String, password: String)
+    fun isLogin()
 }

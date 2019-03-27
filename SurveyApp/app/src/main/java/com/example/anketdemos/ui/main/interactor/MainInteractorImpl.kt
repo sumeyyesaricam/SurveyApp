@@ -14,9 +14,9 @@ class MainInteractorImpl @Inject internal constructor(preferenceHelper: Preferen
         }
     }
 
-    override fun getQuestions(onListen: (List<Survey>) -> Unit) {
-        apiHelper.getQuestions { questionList ->
-            onListen(questionList)
+    override fun getSurveys(onComplete: (List<Survey>) -> Unit) {
+        apiHelper.getSurveys { questionList ->
+            onComplete(questionList)
         }
     }
 

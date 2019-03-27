@@ -22,7 +22,7 @@ class MainPresenterImpl<V : MainView, I : MainInteractorImpl> @Inject internal c
 
     override fun setRecyclerSurveyList() {
         getView()?.showProgress()
-        interactor?.getQuestions {surveyList->
+        interactor?.getSurveys {surveyList->
             getView()?.hideProgress()
             getView()?.setSurveyListAdapter(surveyList)
         }
